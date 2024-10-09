@@ -12,17 +12,7 @@
 
             for (int i = 0; i < message.Length; i++)
             {
-                int secretCharIndex = (Array.IndexOf(alphabet, message[i]) + 3) % alphabet.Length;
-
-
-                if (secretCharIndex < (alphabet.Length - 1))
-                {
-                    encryptedMessage += alphabet[secretCharIndex];
-                }
-                else
-                {
-                    encryptedMessage += alphabet[secretCharIndex - alphabet.Length];
-                }
+                encryptedMessage += alphabet[(Array.IndexOf(alphabet, message[i]) + 3) % alphabet.Length];
             }
 
             Console.WriteLine(encryptedMessage);
