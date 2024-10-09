@@ -12,13 +12,16 @@
 
             for (int i = 0; i < message.Length; i++)
             {
-                if((Array.IndexOf(alphabet, message[i]) + 3) < (alphabet.Length - 1))
+                int secretCharIndex = (Array.IndexOf(alphabet, message[i]) + 3) % alphabet.Length;
+
+
+                if (secretCharIndex < (alphabet.Length - 1))
                 {
-                    encryptedMessage += alphabet[Array.IndexOf(alphabet, message[i]) + 3];
+                    encryptedMessage += alphabet[secretCharIndex];
                 }
                 else
                 {
-                    encryptedMessage += alphabet[(Array.IndexOf(alphabet, message[i]) + 3) - alphabet.Length];
+                    encryptedMessage += alphabet[secretCharIndex - alphabet.Length];
                 }
             }
 
